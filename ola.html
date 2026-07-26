@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gonçalo Maths & Informática</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #f59e0b;
+            --whatsapp: #25d366;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        /* Promoção */
+        .promo-box {
+            background: #fef3c7;
+            border: 2px dashed var(--accent);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .promo-price {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+
+        .promo-price strong {
+            color: #d97706;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* Testemunho */
+        .testimonial {
+            background: #f1f5f9;
+            padding: 15px;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        /* Formulário */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        /* Prémios */
+        .prizes-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .prize-item {
+            background: #eff6ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #bfdbfe;
+        }
+
+        .btn {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-promo {
+            background: var(--accent);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Gonçalo Maths & Informática</h1>
+        <p>Apoio escolar e explicações personalizadas para o teu sucesso!</p>
+    </header>
+
+    <section class="card">
+        <h2>Opinião dos Encarregados de Educação</h2>
+        <div class="testimonial">
+            <p>"A experiência com as explicações foi fantástica! O meu filho melhorou consideravelmente as notas e a confiança na matéria. Recomendo vivamente o trabalho do Gonçalo."</p>
+            <br>
+            <small>— <strong>Maria Santos</strong> (Encarregada de Educação)</small>
+        </div>
+    </section>
+
+    <section class="card promo-box">
+        <span class="badge">PROMOÇÃO EXCLUSIVA</span>
+        <h2 style="border: none; margin-top: 10px; color: #92400e;">Oferta de Boas-Vindas</h2>
+        <p class="promo-price">
+            • <strong>2 Horas</strong> por apenas <strong>9€</strong><br>
+            • <strong>3 Horas</strong> por apenas <strong>8€</strong>
+        </p>
+        <p><small>⚠️ Campanha válida até <strong>27 de Outubro</strong>. Exclusivo para <strong>Novos Clientes</strong>.</small></p>
+        <button class="btn btn-promo" onclick="adquirirVale()">Adquirir Vale de Desconto</button>
+    </section>
+
+    <section class="card">
+        <h2>Formulário de Inscrição</h2>
+        <form id="inscriptionForm" onsubmit="enviarWhatsApp(event)">
+            
+            <div class="form-group">
+                <label for="aluno">Nome do Aluno:</label>
+                <input type="text" id="aluno" required>
+            </div>
+
+            <div class="form-group">
+                <label for="encarregado">Nome do Encarregado de Educação:</label>
+                <input type="text" id="encarregado" required>
+            </div>
+
+            <div class="form-group">
+                <label for="morada">Morada:</label>
+                <input type="text" id="morada" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contacto">Número de Telefone ou E-mail:</label>
+                <input type="text" id="contacto" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tem dificuldades na matéria?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="dificuldades" value="Sim" required> Sim</label>
+                    <label><input type="radio" name="dificuldades" value="Não"> Não</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Disciplinas pretendidas:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="disciplina" value="Matemática" id="discMat"> Matemática</label>
+                    <label><input type="checkbox" name="disciplina" value="Português" id="discPort"> Português</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="horas">Quantas horas pretende por semana?</label>
+                <input type="number" id="horas" min="1" max="10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dias">Descreva os dias e horários preferidos (à mão/detalhado):</label>
+                <textarea id="dias" rows="4" placeholder="Ex: Às terças das 15h às 17h e quintas à tarde..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn">📱 Inscrever e Enviar por WhatsApp</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>🏆 Prémios do 9.º Ano</h2>
+        <p>Ao longo do ano letivo, o empenho e os bons resultados nas explicações dão acesso a prémios exclusivos!</p>
+        <ul class="prizes-list">
+            <li class="prize-item">
+                <h3>🥉 Prémio Bronze</h3>
+                <p>Material Escolar / Cadernos Personalizados</p>
+            </li>
+            <li class="prize-item">
+                <h3>🥈 Prémio Prata</h3>
+                <p>Vale de Desconto em Livros / Leitura</p>
+            </li>
+            <li class="prize-item">
+                <h3>🥇 Prémio Ouro</h3>
+                <p>Cartão Oferta Tech / Gaming no final do ano</p>
+            </li>
+        </ul>
+    </section>
+
+</div>
+
+<script>
+    // DEIXADO EM BRANCO: Escreve o teu número no meio das aspas quando quiseres (ex: "351912345678")
+    const NUMERO_WHATSAPP = "";
+
+    let valeReclamado = false;
+
+    function adquirirVale() {
+        const eNovoCliente = confirm("Esta promoção é válida apenas para novos clientes. É a sua primeira vez connosco?");
+        if (eNovoCliente) {
+            valeReclamado = true;
+            alert("Parabéns! O seu vale de promoção foi ativado. Preencha o formulário abaixo para enviar a inscrição por WhatsApp.");
+            document.getElementById('inscriptionForm').scrollIntoView({ behavior: 'smooth' });
+        } else {
+            alert("Agradecemos o seu interesse! Esta promoção é exclusiva para novos clientes.");
+        }
+    }
+
+    function enviarWhatsApp(event) {
+        event.preventDefault();
+
+        const aluno = document.getElementById('aluno').value;
+        const encarregado = document.getElementById('encarregado').value;
+        const morada = document.getElementById('morada').value;
+        const contacto = document.getElementById('contacto').value;
+        const dificuldades = document.querySelector('input[name="dificuldades"]:checked').value;
+        
+        const disciplinas = [];
+        if (document.getElementById('discMat').checked) disciplinas.push("Matemática");
+        if (document.getElementById('discPort').checked) disciplinas.push("Português");
+        const discTexto = disciplinas.length > 0 ? disciplinas.join(" e ") : "Nenhuma selecionada";
+
+        const horas = document.getElementById('horas').value;
+        const dias = document.getElementById('dias').value;
+
+        let mensagem = `*NOVA INSCRIÇÃO - Gonçalo Maths & Informática*\n\n`;
+        mensagem += `👤 *Aluno:* ${aluno}\n`;
+        mensagem += `👨‍👩‍👦 *Encarregado de Educação:* ${encarregado}\n`;
+        mensagem += `🏠 *Morada:* ${morada}\n`;
+        mensagem += `📞 *Contacto:* ${contacto}\n`;
+        mensagem += `❓ *Tem Dificuldades?:* ${dificuldades}\n`;
+        mensagem += `📚 *Disciplinas:* ${discTexto}\n`;
+        mensagem += `⏱️ *Horas/Semana:* ${horas}h\n`;
+        mensagem += `📅 *Dias e Horários:* ${dias}\n`;
+
+        if (valeReclamado) {
+            mensagem += `\n🎁 *PROMOÇÃO APLICADA:* Vale de Novo Cliente (válido até 27 de Outubro).\n`;
+        }
+
+        const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, '_blank');
+    }
+</script>
+
+</body>
+</html>
